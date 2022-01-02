@@ -1,0 +1,50 @@
+﻿@model PostViewModel
+
+@{
+    ViewData["Title"] = "Edit Page";
+}
+
+<h3>Edit Post</h3>
+<form asp-controller="Panel" asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+    <div>
+        <label>Title</label>
+        <input asp-for="Title" />
+    </div>
+    <div>
+        <label>Description</label>
+        <input asp-for="Description" />
+    </div>
+    <div>
+        <label>Tags</label>
+        <input asp-for="Tags" />
+    </div>
+     <div>
+        <label>Category</label>
+        <select asp-for="Category">
+           <option value="Travel">Travel</option>
+           <option value="Programming">Programming</option>
+           <option value="Photography">Photography</option>
+        </select>
+    </div>
+    <div>
+        <label>Body</label>
+        <textarea id="summernote" asp-for="Body"></textarea>
+    </div>
+    <div>
+        <label>Image</label>
+        <input asp-for="CurrentImage" type="hidden" />
+        <input asp-for="Image" />
+    </div>
+    <input type="submit" value="Submit" />
+</form>
+
+<script>
+    $('#summernote').summernote({
+      placeholder: 'Hello Bootstrap 4',
+      tabsize: 2,
+      height: 100
+    });
+</script>
+
+

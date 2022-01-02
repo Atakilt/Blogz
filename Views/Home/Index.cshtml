@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Post>
+
+@{
+    ViewData["Title"] = "Blogz Home Page";
+    ViewData["Description"] = "Blogz Website. This Blog has everything!";
+    ViewData["Keywords"] = "blog programming travel photgraphy";
+}
+
+
+@foreach (var post in Model)
+{
+    var image_path = $"/Image/{post.Image}";
+    <div class="card" style="width: 18rem;">
+        <img src="@image_path" width="290" height="180" />
+        <div class="card-body">
+            <h5 class="card-title"><a asp-controller="Home" asp-action="Post" asp-route-id="@post.Id">@post.Title</a></h5>
+        </div>
+    </div>
+}
